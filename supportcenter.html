@@ -43,6 +43,11 @@
           Typekit.load(config);
         } catch (e) { }
       };
+      tk.onerror = function () {
+        clearTimeout(t);
+        h.className =
+          h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+      };
       s.parentNode.insertBefore(tk, s);
     })(document);
   </script>
